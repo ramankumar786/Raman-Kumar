@@ -50,9 +50,9 @@
                     
                     <a href="assets/Raman Kumar Resume.pdf" download class="button">Download Resume</a>
                     <div class="home__social" style="margin-top: 15px;">
-                        <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                        <a href="" class="home__social-icon"><i class='bx bxl-instagram'></i></a>
-                        <a href="" class="home__social-icon"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.linkedin.com/in/er-raman-kumarcse786/" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                        <!-- <a href="" class="home__social-icon"><i class='bx bxl-instagram'></i></a> -->
+                        <a href="https://github.com/ramankumar786" class="home__social-icon"><i class='bx bxl-github'></i></a>
         
                     </div>
             </div>
@@ -236,7 +236,7 @@
                     <input type="text" placeholder="Name" name="Name" class="contact__input" required>
                     <input type="email" placeholder="Email" name="Email" class="contact__input" required>
                     <textarea name="Message" cols="30" rows="10" class="contact__input" required></textarea>
-                    <input type="submit" value="Submit" class="contact__button button" id="Submit" onclick="fe()">
+                    <input type="submit" value="Submit" class="contact__button button" id="Submit">
                 </form>   
             </div>
         </section>
@@ -252,11 +252,13 @@
         
                     // Create FormData object from the form
                     let data = new FormData(form);
+                    fe()
         
                     // Send form data via fetch POST request
                     fetch('https://script.google.com/macros/s/AKfycbwFZx-R9L1ttp37rCF4saBoXDux3zGJJoketIdK1xZd-pU5hxlFTEgm4Pgs56lsXrSe/exec', {
                         method: "POST",
                         body: data
+                        
                     })
                     .then(response => {
                         if (!response.ok) {
@@ -281,10 +283,12 @@
                         console.error('Error:', error);
                         // Handle errors if any
                         document.querySelector('#msg').innerHTML = 'Error submitting the form.';
+                        document.querySelector('#Submit').value="Submit"
                     });
                 });
             });
 
+            
             function fe(){
                 document.querySelector('#Submit').value="Submitting..."
             }
